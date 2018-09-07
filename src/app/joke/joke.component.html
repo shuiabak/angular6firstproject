@@ -1,0 +1,74 @@
+<!-- <p>
+  joke works!
+</p>
+Name:{{name}}<br/>
+Age:{{age}}
+{{'young dude'}}
+<button class="btn btn-primary" [disabled]="!hasLastName" (click)="getName()">
+Button
+</button>
+{{name}}
+
+<input (keyup)="getName($event)">
+
+<input type="text" class="form-control" [(ngModel)]="name"> -->
+
+<!-- <p *ngIf="hide">{{name}}</p>
+<button class="btn btn-primary" (click)=clickMe()>
+  Click Me
+  </button>
+
+  <div class="card card-block" *ngFor="let quote of quotes">
+    <div *ngIf="!quote.hide">   
+<p [ngStyle]="{backgroundColor:getColor()}">{{quote.setup}}</p><br/>
+<p [ngClass]="{test: variable=='hello'}">{{quote.punchline}}</p><br/>
+<p>{{quote.hide}}</p><br/>
+</div>
+  </div> -->
+
+
+  <input type="text" class="form-control" placeholder="Enter the joke" [(ngModel)]="jokeName"/><br/>
+  <input type="text"  class="form-control" placeholder="Enter the Tag Line" [(ngModel)]="jokeTagLine" />
+  <button class="btn btn-regular" (click)="addJokes()" >Create</button>
+
+
+  <div>
+    <ul *ngFor="let joke of jokeList">
+      <li>Joke Name:{{joke.jokeName }}    Joke Tag Line:{{ joke.jokeTagLine}}</li>
+    </ul>
+  </div>
+
+
+  <app-jokelist  [newJokeList]=jokeList  (listJokes)="getAllJokes($event)"   (myArray)="getMyArray($event)"  >    
+    
+  </app-jokelist>
+
+  <div>
+    <p [appColor]="myColor">OutPut</p>
+      <ul *ngFor="let joke of outJokeList">
+        <li>Joke Name:{{joke.jokeName }}    Joke Tag Line:{{ joke.jokeTagLine}}</li>
+      </ul>
+
+      <ul *ngFor="let name of result">
+        <li>{{name}}</li>
+      </ul>
+
+    </div>
+
+    <div bind-appColor="myColor">FirstName:{{firstName}}</div><br/>
+    <div appColor={{myColor}}>FirstName:{{firstName}}</div><br/>
+    LastName:{{lastName}}
+
+
+    <h1>Movies</h1>
+    <div class="row">
+      <div class="col-sm-4" *ngFor="let movie of observableMovie | async"> 
+          <img style="width:200px;height:200px" class="card-img-top" 
+          src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}" alt="Card image cap" (click)=getMovieDetails(movie.id) >
+          <div class="card-body" >
+           Title: {{movie.title}}
+          </div>
+       
+      </div>
+
+    </div>

@@ -1,0 +1,16 @@
+<p [appFirst]='color'>
+  revision works!
+</p>
+
+<input type="text" [value]="username" (input)="getInput($event)">
+
+<p [style.font-size]="size" [style.font-family]="fontFamily"  appFirst='yellow'>Hello</p>
+<input type="text" (input)="name=$event.target.value">
+
+<input type="text" [(ngModel)]="name">
+{{name}}
+
+<app-second-revision [Person]="person" (newPerson)='getUpdatedPerson($event)'></app-second-revision>
+
+
+

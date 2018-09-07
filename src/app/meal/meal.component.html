@@ -1,0 +1,9 @@
+<div class="col-sm-6">
+    Meal Type:<ngx-select-dropdown class="selectpicker" [options]="mealType" [(value)]="selectedMealType"></ngx-select-dropdown>
+    {{selectedMealType}}
+</div>
+ <br/>
+ <app-breadtype (selectedBreadType)="getBreadType($event)"></app-breadtype>
+ {{selectedBreadType}}
+
+ 
